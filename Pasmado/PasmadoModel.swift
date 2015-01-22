@@ -48,6 +48,7 @@ class PasmadoModel: NSObject {
         }
     }
     
+    var statusLength: NSTimeInterval = 0
     private var _lostTime: NSTimeInterval = 0
     var lostTime: NSTimeInterval {
         get {
@@ -69,6 +70,8 @@ class PasmadoModel: NSObject {
         }
     }
     
+    var timer: NSTimer?
+    
     //MARK: - Actions
     
     func synchronize() {
@@ -82,6 +85,20 @@ class PasmadoModel: NSObject {
                 println(object)
                 if let dict = object as? ResponseDictionary {
                     self.parseResponse(dict)
+                    
+                    if self.lostTime > 0 {
+                        self.invalidateTimer()
+                        
+                        self.timer = NSTimer.scheduledTimerWithTimeInterval(
+                            1,
+                            target: self,
+                            selector: "tick",
+                            userInfo: nil,
+                            repeats: true
+                        )
+                        let runLoop = NSRunLoop.mainRunLoop()
+                        runLoop.addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+                    }
                 }
             },
             failure: {error in
@@ -108,15 +125,16 @@ class PasmadoModel: NSObject {
                 if let duration = curStateOptionDict["duration"] as? Int {
                     let durationInterval = NSTimeInterval(duration)
                     self.lostTime = durationInterval - curTimeInterval
+                    self.statusLength = durationInterval
                 }
                 if let colorString = curStateOptionDict["color"] as? String {
                     switch colorString {
                     case "white":
                         self.color = NSColor.blackColor()
                     case "green":
-                        self.color = NSColor.greenColor()
+                        self.color = NSColor(red: 0, green: 102.0 / 255.0, blue: 51.0 / 255.0, alpha: 1)
                     case "yellow":
-                        self.color = NSColor.yellowColor()
+                        self.color = NSColor(red: 255.0 / 255.0, green: 128.0 / 255.0, blue: 0.0 / 255.0, alpha: 1)
                     default:
                         self.color = NSColor.blackColor()
                         break
@@ -130,6 +148,26 @@ class PasmadoModel: NSObject {
     func sendToDelegate() {
         if let del = self.delegate {
             del.pasmadoDidChange(self)
+        }
+    }
+    
+    //MARK: - Timer
+    
+    func tick() {
+        self.lostTime--
+        
+        if self.lostTime <= 0 {
+            self.invalidateTimer()
+            self.synchronize()
+        }
+    }
+    
+    
+    func invalidateTimer() {
+        println("invalidateTimer")
+        if let timer = self.timer {
+            timer.invalidate()
+            self.timer = nil
         }
     }
 }

@@ -10,31 +10,31 @@
 	<string>Teamodoro</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E6C60D120F5DC98B47E7512C1989F14C024FE58A</key>
-		<string>https://bitbucket.org/konshin/cservice.git</string>
+		<key>45C7B83EF83AC6708B029A44951BC34F78E09A2C</key>
+		<string>https://github.com/teamodoro/teamodoro.mac.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Teamadoro/Teamodoro.xcworkspace</string>
+	<string>Teamodoro.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E6C60D120F5DC98B47E7512C1989F14C024FE58A</key>
-		<string>../..</string>
+		<key>45C7B83EF83AC6708B029A44951BC34F78E09A2C</key>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/konshin/cservice.git</string>
+	<string>https://github.com/teamodoro/teamodoro.mac.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E6C60D120F5DC98B47E7512C1989F14C024FE58A</string>
+	<string>45C7B83EF83AC6708B029A44951BC34F78E09A2C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E6C60D120F5DC98B47E7512C1989F14C024FE58A</string>
+			<string>45C7B83EF83AC6708B029A44951BC34F78E09A2C</string>
 			<key>IDESourceControlWCCName</key>
-			<string>My</string>
+			<string>Teamadoro</string>
 		</dict>
 	</array>
 </dict>

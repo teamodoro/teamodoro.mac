@@ -15,9 +15,6 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
     var mainItem = NSStatusBar.systemStatusBar().statusItemWithLength(45)
     let pasmado = PasmadoModel()
     
-    var timer: NSTimer?
-    var curTimeInterval: NSTimeInterval = 0
-    
     var lastStatus = Status.Unknow
     
     override init() {
@@ -31,39 +28,58 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
     
     func setupMenu() {
         self.menu.delegate = self
+        self.mainItem.action = "test"
         
         self.mainItem.menu = self.menu
         self.mainItem.highlightMode = true
-        self.mainItem.title = "Pasmado"
+//        self.mainItem.title = "Pasmado"
+        if let button = self.mainItem.button {
+            button
+        }
         
         self.pasmadoDidChange(self.pasmado)
     }
     
     
-    func tick() {
-        self.curTimeInterval--
-        
-        if self.curTimeInterval <= 0 {
-            self.invalidateTimer()
-            self.pasmado.synchronize()
-        }
-        
-        self.updateMainItemText(self.pasmado)
+    func test() {
+        println("test")
     }
     
     
     func updateMainItemText(pasmado: PasmadoModel) {
-        let date = NSDate(timeIntervalSince1970: self.curTimeInterval)
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "mm:ss"
-        let text = formatter.stringFromDate(date)
-        
-        let attributedText = NSAttributedString(string: text, attributes: [
-            NSFontAttributeName: NSFont.systemFontOfSize(14),
-            NSForegroundColorAttributeName: pasmado.color
-            ])
-        
-        self.mainItem.attributedTitle = attributedText
+        if true {
+            /**
+            Циферблат
+            */
+            self.mainItem.image = nil
+            self.mainItem.length = 45
+            
+            let date = NSDate(timeIntervalSince1970: pasmado.lostTime)
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "mm:ss"
+            let text = formatter.stringFromDate(date)
+            
+            let attributedText = NSAttributedString(string: text, attributes: [
+                NSFontAttributeName: NSFont.systemFontOfSize(14),
+                NSForegroundColorAttributeName: pasmado.color
+                ])
+            
+            self.mainItem.attributedTitle = attributedText
+        } else {
+            if pasmado.lostTime <= 0 || pasmado.statusLength <= 0 {
+                return
+            }
+            
+            /**
+            гарфик
+            */
+            self.mainItem.title = nil
+            self.mainItem.length = 20
+            
+            let icon = TreyIcon(frame: NSRect(x: 0, y: 0, width: 20, height: 20), pasmado: pasmado)
+            let image = NSImage(data: icon.dataWithPDFInsideRect(icon.bounds))
+            self.mainItem.image = image
+        }
     }
 
     
@@ -78,19 +94,9 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
         center.scheduleNotification(notification)
     }
     
-    
-    func invalidateTimer() {
-        println("invalidateTimer")
-        if let timer = self.timer {
-            timer.invalidate()
-            self.timer = nil
-        }
-    }
-    
     //MARK: - Pasmado Delegate
     
     func pasmadoDidChange(pasmado: PasmadoModel) {
-        self.curTimeInterval = pasmado.lostTime
         self.statusItem.title = pasmado.status.stringValue()
         
         if self.lastStatus != pasmado.status && self.lastStatus != .Unknow {
@@ -99,20 +105,6 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
         self.lastStatus = pasmado.status
         
         self.updateMainItemText(pasmado)
-        
-        if self.curTimeInterval > 0 {
-            self.invalidateTimer()
-            
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(
-                1,
-                target: self,
-                selector: "tick",
-                userInfo: nil,
-                repeats: true
-            )
-            let runLoop = NSRunLoop.mainRunLoop()
-            runLoop.addTimer(self.timer!, forMode: NSRunLoopCommonModes)
-        }
     }
     
     //MARK: - IBActions
@@ -129,5 +121,16 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
     
     @IBAction func showSettings(sender: AnyObject) {
         println("show settings")
+    }
+    
+    //MARK: - menu delegate
+    
+    func menuWillOpen(menu: NSMenu) {
+
+    }
+    
+    
+    func menuDidClose(menu: NSMenu) {
+        
     }
 }

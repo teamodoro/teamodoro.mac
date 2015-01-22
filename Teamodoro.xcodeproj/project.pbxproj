@@ -15,6 +15,8 @@
 		D527A3481A6FB1EC00E87D5E /* PasmadoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D527A3471A6FB1EC00E87D5E /* PasmadoModel.swift */; };
 		D52C8AD61A6FCF0D001A3628 /* Pasmado.png in Resources */ = {isa = PBXBuildFile; fileRef = D52C8AD51A6FCF0D001A3628 /* Pasmado.png */; };
 		D52C8AD91A6FD7DB001A3628 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C8AD81A6FD7DB001A3628 /* MenuController.swift */; };
+		D5B5E6341A713954008C3751 /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5E6331A713954008C3751 /* NSColorExtension.swift */; };
+		D5D3C0B71A712B7600079084 /* TreyIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D3C0B61A712B7600079084 /* TreyIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +33,7 @@
 		5A5231504359A2335E29F846 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1A036637B81547CDB9D471 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C5E7759B2117C71C0A436192 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D527A3221A6FB10E00E87D5E /* Pasmado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pasmado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D527A3221A6FB10E00E87D5E /* Teamodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teamodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D527A3261A6FB10E00E87D5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D527A3271A6FB10E00E87D5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D527A3291A6FB10E00E87D5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -43,6 +45,8 @@
 		D52C8AD51A6FCF0D001A3628 /* Pasmado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pasmado.png; sourceTree = "<group>"; };
 		D52C8AD81A6FD7DB001A3628 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		D5A7D5301A6FB35E00AB34C6 /* MyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		D5B5E6331A713954008C3751 /* NSColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
+		D5D3C0B61A712B7600079084 /* TreyIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreyIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +99,7 @@
 		D527A3231A6FB10E00E87D5E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D527A3221A6FB10E00E87D5E /* Pasmado.app */,
+				D527A3221A6FB10E00E87D5E /* Teamodoro.app */,
 				D527A3321A6FB10E00E87D5E /* TeamodoroTests.xctest */,
 			);
 			name = Products;
@@ -104,6 +108,7 @@
 		D527A3241A6FB10E00E87D5E /* Pasmado */ = {
 			isa = PBXGroup;
 			children = (
+				D5B5E6321A713941008C3751 /* Utils */,
 				D52C8AD71A6FD7D1001A3628 /* Menu */,
 				D52C8AD41A6FCF0D001A3628 /* Images */,
 				D527A3461A6FB1DB00E87D5E /* Models */,
@@ -161,8 +166,17 @@
 			isa = PBXGroup;
 			children = (
 				D52C8AD81A6FD7DB001A3628 /* MenuController.swift */,
+				D5D3C0B61A712B7600079084 /* TreyIcon.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		D5B5E6321A713941008C3751 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D5B5E6331A713954008C3751 /* NSColorExtension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +198,7 @@
 			);
 			name = Teamodoro;
 			productName = Pasmado;
-			productReference = D527A3221A6FB10E00E87D5E /* Pasmado.app */;
+			productReference = D527A3221A6FB10E00E87D5E /* Teamodoro.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D527A3311A6FB10E00E87D5E /* TeamodoroTests */ = {
@@ -302,6 +316,8 @@
 			files = (
 				D52C8AD91A6FD7DB001A3628 /* MenuController.swift in Sources */,
 				D527A3481A6FB1EC00E87D5E /* PasmadoModel.swift in Sources */,
+				D5B5E6341A713954008C3751 /* NSColorExtension.swift in Sources */,
+				D5D3C0B71A712B7600079084 /* TreyIcon.swift in Sources */,
 				D527A3281A6FB10E00E87D5E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
