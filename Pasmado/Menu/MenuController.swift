@@ -75,7 +75,7 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
             гарфик
             */
             self.mainItem.title = nil
-            self.mainItem.length = 20
+            self.mainItem.length = 25
             
             let icon = TreyIcon(frame: NSRect(x: 0, y: 0, width: 20, height: 20), pasmado: pasmado)
             let image = NSImage(data: icon.dataWithPDFInsideRect(icon.bounds))

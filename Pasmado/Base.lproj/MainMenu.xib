@@ -715,5 +715,15 @@
                 </menuItem>
             </items>
         </menu>
+        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="z4Y-Xm-U1f">
+            <rect key="frame" x="0.0" y="0.0" width="38" height="17"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="jnb-07-K3J">
+                <font key="font" metaFont="system"/>
+                <color key="textColor" red="0.0" green="0.82655054209183676" blue="0.2633691677274419" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+            </textFieldCell>
+            <point key="canvasLocation" x="635" y="409.5"/>
+        </textField>
     </objects>
 </document>

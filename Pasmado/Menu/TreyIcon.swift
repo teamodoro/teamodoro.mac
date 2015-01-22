@@ -44,7 +44,7 @@ class TreyIcon: NSView {
             endAngle: 360
         )
         
-        self.pasmado.color.reverseColor().setFill()
+        NSColor.blackColor().setFill()
         circlePath.fill()
         circlePath.closePath()
         
