@@ -36,38 +36,35 @@ class TreyIcon: NSView {
         )
         let radius = min(center.x, center.y) - 2
 
+        let circlePath = NSBezierPath()
+        circlePath.appendBezierPathWithArcWithCenter(
+            center,
+            radius: radius,
+            startAngle: 0,
+            endAngle: 360
+        )
+        
+        self.pasmado.color.reverseColor().setFill()
+        circlePath.fill()
+        circlePath.closePath()
+        
         let arcPath = NSBezierPath()
         let progress = CGFloat(pasmado.lostTime / pasmado.statusLength)
         arcPath.appendBezierPathWithArcWithCenter(
             center, 
-            radius: radius,
+            radius: radius - 2,
             startAngle: 90,
             endAngle: 90 + 360 * progress
         )
         arcPath.lineToPoint(center)
         
-        self.pasmado.color.reverseColor().setStroke()
         self.pasmado.color.setFill()
         
-        arcPath.lineWidth = 2
-        arcPath.stroke()
+//        arcPath.lineWidth = 2
+//        arcPath.stroke()
         arcPath.fill()
         
         arcPath.closePath()
-        
-        
-//        let circlePath = NSBezierPath()
-//        circlePath.appendBezierPathWithArcWithCenter(
-//            center,
-//            radius: radius - 2,
-//            startAngle: 0,
-//            endAngle: 360
-//        )
-//
-//        self.pasmado.color.setFill()
-//        circlePath.fill()
-//        circlePath.stroke()
-//        circlePath.closePath()
         
         // Restore the context to what it was before we messed with it
         gc.restoreGraphicsState()

@@ -669,6 +669,8 @@
         </menu>
         <customObject id="nlo-Xe-c49" customClass="MenuController" customModule="Teamodoro" customModuleProvider="target">
             <connections>
+                <outlet property="dialTypeItem" destination="hez-oi-nv9" id="Y5s-8f-G8N"/>
+                <outlet property="iconTypeItem" destination="B5e-fK-6Au" id="NqZ-OW-eZ1"/>
                 <outlet property="menu" destination="C5H-Ip-A7g" id="bK5-by-SBY"/>
                 <outlet property="statusItem" destination="NNp-h2-PQ7" id="Krz-SG-fm5"/>
             </connections>
@@ -692,6 +694,19 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="lVY-Ls-le3"/>
+                <menuItem title="Dial" id="hez-oi-nv9">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="selectType:" target="nlo-Xe-c49" id="BtN-gm-shg"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Icon" tag="1" id="B5e-fK-6Au">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="selectType:" target="nlo-Xe-c49" id="oKw-yH-07p"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="G8D-5n-JjE"/>
                 <menuItem title="Quit" id="zUS-v7-6d0">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>

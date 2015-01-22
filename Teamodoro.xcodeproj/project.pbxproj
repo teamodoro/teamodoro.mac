@@ -16,6 +16,7 @@
 		D52C8AD61A6FCF0D001A3628 /* Pasmado.png in Resources */ = {isa = PBXBuildFile; fileRef = D52C8AD51A6FCF0D001A3628 /* Pasmado.png */; };
 		D52C8AD91A6FD7DB001A3628 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C8AD81A6FD7DB001A3628 /* MenuController.swift */; };
 		D5B5E6341A713954008C3751 /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5E6331A713954008C3751 /* NSColorExtension.swift */; };
+		D5B5E6361A714C9D008C3751 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5E6351A714C9D008C3751 /* Configuration.swift */; };
 		D5D3C0B71A712B7600079084 /* TreyIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D3C0B61A712B7600079084 /* TreyIcon.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		D52C8AD81A6FD7DB001A3628 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		D5A7D5301A6FB35E00AB34C6 /* MyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		D5B5E6331A713954008C3751 /* NSColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
+		D5B5E6351A714C9D008C3751 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		D5D3C0B61A712B7600079084 /* TreyIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreyIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				D5B5E6331A713954008C3751 /* NSColorExtension.swift */,
+				D5B5E6351A714C9D008C3751 /* Configuration.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5B5E6361A714C9D008C3751 /* Configuration.swift in Sources */,
 				D52C8AD91A6FD7DB001A3628 /* MenuController.swift in Sources */,
 				D527A3481A6FB1EC00E87D5E /* PasmadoModel.swift in Sources */,
 				D5B5E6341A713954008C3751 /* NSColorExtension.swift in Sources */,

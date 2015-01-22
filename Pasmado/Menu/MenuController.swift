@@ -11,6 +11,8 @@ import Cocoa
 class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
     @IBOutlet var menu: NSMenu!
     @IBOutlet var statusItem: NSMenuItem!
+    @IBOutlet var dialTypeItem: NSMenuItem!
+    @IBOutlet var iconTypeItem: NSMenuItem!
     
     var mainItem = NSStatusBar.systemStatusBar().statusItemWithLength(45)
     let pasmado = PasmadoModel()
@@ -33,9 +35,8 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
         self.mainItem.menu = self.menu
         self.mainItem.highlightMode = true
 //        self.mainItem.title = "Pasmado"
-        if let button = self.mainItem.button {
-            button
-        }
+        
+        self.selectTypeButton()
         
         self.pasmadoDidChange(self.pasmado)
     }
@@ -47,7 +48,7 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
     
     
     func updateMainItemText(pasmado: PasmadoModel) {
-        if true {
+        if Configuration.mainItemType == .Dial {
             /**
             Циферблат
             */
@@ -94,6 +95,20 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
         center.scheduleNotification(notification)
     }
     
+    
+    func selectTypeButton() {
+        let items = [self.dialTypeItem, self.iconTypeItem]
+        let curType = Configuration.mainItemType
+        
+        for item in items {
+            if item.tag == curType.rawValue.integerValue {
+                item.state = 1
+            } else {
+                item.state = 0
+            }
+        }
+    }
+    
     //MARK: - Pasmado Delegate
     
     func pasmadoDidChange(pasmado: PasmadoModel) {
@@ -121,6 +136,15 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
     
     @IBAction func showSettings(sender: AnyObject) {
         println("show settings")
+    }
+    
+    
+    @IBAction func selectType(sender: NSMenuItem) {
+        let number = NSNumber(integer: sender.tag)
+        if let type = ItemType(rawValue: number) {
+            Configuration.mainItemType = type
+            self.selectTypeButton()
+        }
     }
     
     //MARK: - menu delegate

@@ -130,7 +130,7 @@ class PasmadoModel: NSObject {
                 if let colorString = curStateOptionDict["color"] as? String {
                     switch colorString {
                     case "white":
-                        self.color = NSColor.blackColor()
+                        self.color = NSColor.whiteColor()
                     case "green":
                         self.color = NSColor(red: 0, green: 102.0 / 255.0, blue: 51.0 / 255.0, alpha: 1)
                     case "yellow":
