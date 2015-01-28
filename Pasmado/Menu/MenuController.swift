@@ -60,11 +60,16 @@ class MenuController: NSObject, NSMenuDelegate, PasmadoDelegate {
             formatter.dateFormat = "mm:ss"
             let text = formatter.stringFromDate(date)
             
+            let shadow = NSShadow()
+            shadow.shadowBlurRadius = 5;
+            shadow.shadowColor = NSColor.blackColor()
+            
             let attributedText = NSAttributedString(string: text, attributes: [
                 NSFontAttributeName: NSFont.systemFontOfSize(14),
-                NSForegroundColorAttributeName: pasmado.color
+                NSForegroundColorAttributeName: pasmado.color,
+                NSShadowAttributeName:  shadow
                 ])
-            
+
             self.mainItem.attributedTitle = attributedText
         } else {
             if pasmado.lostTime <= 0 || pasmado.statusLength <= 0 {

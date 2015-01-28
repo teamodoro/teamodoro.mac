@@ -132,9 +132,9 @@ class PasmadoModel: NSObject {
                     case "white":
                         self.color = NSColor.whiteColor()
                     case "green":
-                        self.color = NSColor(red: 0, green: 211.0 / 255.0, blue: 67.0 / 255.0, alpha: 1)
+                        self.color = NSColor.greenColor()
                     case "yellow":
-                        self.color = NSColor(red: 255.0 / 255.0, green: 128.0 / 255.0, blue: 0.0 / 255.0, alpha: 1)
+                        self.color = NSColor.yellowColor()
                     default:
                         self.color = NSColor.blackColor()
                         break

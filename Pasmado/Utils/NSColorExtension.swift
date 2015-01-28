@@ -18,4 +18,17 @@ extension NSColor {
 
         return NSColor(red: 1 - red, green: 1 - green, blue: 1 - blue, alpha: self.alphaComponent)
     }
+    
+    
+    class func trayReverseColor() -> NSColor {
+        if let defaults = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) {
+            if let style = defaults["AppleInterfaceStyle"] as? String {
+                if style.lowercaseString == "dark" {
+                    return NSColor.whiteColor()
+                }
+            }
+        }
+        
+        return NSColor.blackColor()
+    }
 }

@@ -35,38 +35,41 @@ class TreyIcon: NSView {
             y: dirtyRect.origin.y + dirtyRect.size.height / 2
         )
         let radius = min(center.x, center.y) - 2
-
-        let circlePath = NSBezierPath()
-        circlePath.appendBezierPathWithArcWithCenter(
+        let progress = CGFloat(pasmado.lostTime / pasmado.statusLength)
+        let backgroundColor = NSColor.trayReverseColor()
+        
+        let progressPath = NSBezierPath()
+        progressPath.appendBezierPathWithArcWithCenter(
+            center,
+            radius: radius - 2,
+            startAngle: 90,
+            endAngle: 90 + 360 * progress
+        )
+        progressPath.lineToPoint(center)
+        
+        let backgroundPath = NSBezierPath()
+        backgroundPath.appendBezierPathWithArcWithCenter(
             center,
             radius: radius,
             startAngle: 0,
             endAngle: 360
         )
         
-        NSColor.blackColor().setFill()
-        circlePath.fill()
-        circlePath.closePath()
+//        backgroundPath.appendBezierPath(progressPath.bezierPathByReversingPath)
         
-        let arcPath = NSBezierPath()
-        let progress = CGFloat(pasmado.lostTime / pasmado.statusLength)
-        arcPath.appendBezierPathWithArcWithCenter(
-            center, 
-            radius: radius - 2,
-            startAngle: 90,
-            endAngle: 90 + 360 * progress
-        )
-        arcPath.lineToPoint(center)
+        backgroundColor.setFill()
+        backgroundPath.fill()
+        backgroundPath.closePath()
         
-        self.pasmado.color.setFill()
+        if self.pasmado.status == .Running {
+            backgroundColor.reverseColor().setFill()
+        } else {
+            self.pasmado.color.setFill()
+        }
         
-//        arcPath.lineWidth = 2
-//        arcPath.stroke()
-        arcPath.fill()
+        progressPath.fill()
+        progressPath.closePath()
         
-        arcPath.closePath()
-        
-        // Restore the context to what it was before we messed with it
         gc.restoreGraphicsState()
     }
     
